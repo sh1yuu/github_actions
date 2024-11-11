@@ -5,5 +5,4 @@ type AnalyticState = {
 };
 
 export const Analytic = createContext<AnalyticState>({});
-
 Analytic.displayName = 'AnalyticContext';
