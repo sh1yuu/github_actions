@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
+import useMetrika from '../hooks/useMetrika';
 import styles from './app.module.scss';
 const Modal = React.lazy(
 	() => import('../components/modal' /*webpackChunkName: "modal" */)
@@ -13,6 +14,8 @@ const AnotherComponent = React.lazy(
 );
 
 export const App = () => {
+	const { ym, gtag } = useMetrika();
+
 	return (
 		<div className={styles.page}>
 			<div className={styles.links}>
@@ -22,11 +25,13 @@ export const App = () => {
 				<Link to='/modal' className={styles.link}>
 					Перейти на станицу c компонентом Modal
 				</Link>
+				<button className={styles.link} onClick={() => ym('reachGoal', 'buy')}>
+					Купить
+				</button>
 				<button
 					className={styles.link}
 					onClick={() =>
-						(window as any).gtag('event', 'add_to_cart', {
-							send_to: 'G-CGV8TS1NWQ',
+						gtag('event', 'add_to_cart', {
 							event_name: 'add_to_cart',
 						})
 					}>
