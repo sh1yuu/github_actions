@@ -24,8 +24,13 @@ export const App = () => {
 				</Link>
 				<button
 					className={styles.link}
-					onClick={() => (window as any).ym(98889414, 'reachGoal', 'buy')}>
-					Купить
+					onClick={() =>
+						(window as any).gtag('event', 'add_to_cart', {
+							send_to: 'G-CGV8TS1NWQ',
+							event_name: 'add_to_cart',
+						})
+					}>
+					Купить в 1 клик
 				</button>
 			</div>
 			<Routes>
