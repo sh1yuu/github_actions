@@ -22,6 +22,11 @@ export const App = () => {
 				<Link to='/modal' className={styles.link}>
 					Перейти на станицу c компонентом Modal
 				</Link>
+				<button
+					className={styles.link}
+					onClick={() => (window as any).ym(98889414, 'reachGoal', 'buy')}>
+					Купить
+				</button>
 			</div>
 			<Routes>
 				<Route
